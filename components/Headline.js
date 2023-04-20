@@ -4,8 +4,7 @@ import Image from 'next/image'
  * 名称はなんでも良いが、慣例的にpropsを使う
  */
 export function Headline(props) {
-  console.log(props);
-  console.log(props.title);
+  // console.log(props);
   return (
     /**
      * コンポーネント化する時は必ず全体が一つのタグに囲まれていなければいけない
@@ -17,8 +16,8 @@ export function Headline(props) {
     <>
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
         <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get_
-          <code className="font-mono font-bold title">{props.title} page</code>
+          {/* コンポーネント1つ渡す時はpropsではなくchildrenで渡す */}
+          {props.children}
         </p>
         <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
           <a
@@ -27,6 +26,7 @@ export function Headline(props) {
             target="_blank"
             rel="noopener noreferrer"
           >
+            {/* 要素の後ろに空白を作りたい時は{" "}のように書く */}
             By{' '}
             <Image
               src="/vercel.svg"
